@@ -1,0 +1,329 @@
+/* StudySpace - Main Styles */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: linear-gradient(135deg, #f8f6ff, #edf7ff);
+    color: #403858;
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1050px;
+    margin: auto;
+}
+
+/* Header */
+
+.header {
+    background: white;
+    padding: 20px 0;
+    border-bottom: 1px solid #ebe6fa;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo {
+    color: #8572c4;
+    font-size: 26px;
+}
+
+.header-text {
+    color: #9288ac;
+    font-size: 14px;
+}
+
+/* Welcome Section */
+
+.welcome {
+    background: linear-gradient(120deg, #e5ddff, #d8edff);
+    border-radius: 25px;
+    padding: 45px;
+    margin: 35px 0 25px;
+    box-shadow: 0 10px 30px #b9afd526;
+}
+
+.welcome-label {
+    color: #7965af;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.welcome h1 {
+    font-size: 34px;
+    margin: 12px 0;
+    color: #4c4077;
+}
+
+.welcome p {
+    color: #6d6388;
+    max-width: 550px;
+}
+
+/* Statistics */
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.stat-card {
+    background: white;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px #b9afd522;
+    transition: transform 0.3s;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+}
+
+.stat-card h3 {
+    color: #9185a9;
+    font-size: 15px;
+    font-weight: normal;
+}
+
+.stat-card p {
+    color: #8170c4;
+    font-size: 34px;
+    font-weight: bold;
+    margin-top: 8px;
+}
+
+/* Progress Section */
+
+.progress-section {
+    background: white;
+    padding: 28px;
+    border-radius: 20px;
+    margin-bottom: 25px;
+}
+
+.progress-section h2,
+.tasks-section h2,
+.timer-section h2 {
+    color: #514579;
+    font-size: 22px;
+    margin-bottom: 5px;
+}
+
+.progress-section p,
+.tasks-section p,
+.timer-section p {
+    color: #958ba9;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.progress-bar {
+    background: #eee9fa;
+    height: 14px;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+#progressFill {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, #a69ae8, #8ecdf0);
+    border-radius: 20px;
+    transition: width 0.5s;
+}
+
+/* Study Tasks */
+
+.tasks-section {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    margin-bottom: 25px;
+}
+
+.task-form {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+#taskInput {
+    flex: 1;
+    min-width: 0;
+    padding: 14px 18px;
+    border: 2px solid #eee9fa;
+    border-radius: 12px;
+    font-size: 15px;
+    outline: none;
+    font-family: inherit;
+}
+
+#taskInput:focus {
+    border-color: #a99be6;
+}
+
+button {
+    border: none;
+    border-radius: 12px;
+    padding: 13px 22px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    font-family: inherit;
+}
+
+#addTask {
+    background: #9280cf;
+    color: white;
+}
+
+#addTask:hover {
+    background: #7663b8;
+    transform: translateY(-2px);
+}
+
+.task-list {
+    list-style: none;
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 15px;
+    background: #f8f6ff;
+    border-radius: 12px;
+    margin-bottom: 10px;
+}
+
+.task-item input {
+    width: 18px;
+    height: 18px;
+    accent-color: #9280cf;
+    cursor: pointer;
+}
+
+.task-text {
+    flex: 1;
+    overflow-wrap: anywhere;
+}
+
+.task-item.completed .task-text {
+    text-decoration: line-through;
+    color: #a8a1b9;
+}
+
+.delete-btn {
+    background: #ffe8ef;
+    color: #bd6e87;
+    padding: 8px 12px;
+}
+
+.delete-btn:hover {
+    background: #ffd1df;
+}
+
+/* Focus Timer */
+
+.timer-section {
+    background: linear-gradient(135deg, #deefff, #e8e2ff);
+    padding: 40px;
+    border-radius: 25px;
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+#timer {
+    font-size: 65px;
+    font-weight: bold;
+    color: #536c9c;
+    margin: 15px 0 25px;
+    letter-spacing: 3px;
+}
+
+.timer-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+#startTimer {
+    background: #7c9dc8;
+    color: white;
+}
+
+#pauseTimer {
+    background: #a99be0;
+    color: white;
+}
+
+#resetTimer {
+    background: white;
+    color: #6b6791;
+}
+
+.timer-buttons button:hover {
+    transform: translateY(-3px);
+    filter: brightness(0.95);
+}
+
+/* Footer */
+
+footer {
+    text-align: center;
+    padding: 25px;
+    color: #9a91ae;
+    font-size: 13px;
+}
+
+/* Mobile Design */
+
+@media (max-width: 600px) {
+    .header-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .welcome {
+        padding: 28px;
+    }
+
+    .welcome h1 {
+        font-size: 26px;
+    }
+
+    .stats {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .task-form {
+        flex-direction: column;
+    }
+
+    #timer {
+        font-size: 48px;
+    }
+
+    .tasks-section,
+    .timer-section {
+        padding: 24px;
+    }
+}

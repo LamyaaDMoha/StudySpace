@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>StudySpace | Study Planner</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-content">
+            <h2 class="logo">StudySpace ✦</h2>
+            <span class="header-text">Your cozy study corner</span>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <!-- Welcome Section -->
+        <section class="welcome">
+            <span class="welcome-label">YOUR STUDY DASHBOARD</span>
+
+            <h1>Hello, future achiever!</h1>
+
+            <p>
+                Every small step brings you closer to your goals.
+                Let's make today productive!
+            </p>
+        </section>
+
+        <!-- Dashboard Statistics -->
+        <section class="stats">
+
+            <div class="stat-card">
+                <h3>Total Tasks</h3>
+                <p id="totalTasks">0</p>
+            </div>
+
+            <div class="stat-card">
+                <h3>Completed</h3>
+                <p id="completedTasks">0</p>
+            </div>
+
+            <div class="stat-card">
+                <h3>Progress</h3>
+                <p id="progressPercent">0%</p>
+            </div>
+
+        </section>
+
+        <!-- Progress Bar -->
+        <section class="progress-section">
+            <h2>Your Progress</h2>
+            <p>Keep going, you're doing great!</p>
+
+            <div class="progress-bar">
+                <div id="progressFill"></div>
+            </div>
+        </section>
+
+        <!-- Study Tasks -->
+        <section class="tasks-section">
+            <h2>My Study Tasks</h2>
+
+            <p>Organize your tasks and stay on track.</p>
+
+            <form id="taskForm" class="task-form">
+                <input
+                    type="text"
+                    id="taskInput"
+                    placeholder="What do you need to study?"
+                    aria-label="New study task"
+                    required
+                >
+
+                <button type="submit" id="addTask">
+                    + Add Task
+                </button>
+            </form>
+
+            <ul id="taskList" class="task-list"></ul>
+        </section>
+
+        <!-- Focus Timer -->
+        <section class="timer-section">
+            <h2>Focus Timer</h2>
+
+            <p>Stay focused, one session at a time.</p>
+
+            <div id="timer">25:00</div>
+
+            <div class="timer-buttons">
+                <button id="startTimer">Start</button>
+                <button id="pauseTimer">Pause</button>
+                <button id="resetTimer">Reset</button>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>Made with care by Lamyaa Mohammed</p>
+        <p>StudySpace © 2026</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
