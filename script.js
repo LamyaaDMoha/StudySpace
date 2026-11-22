@@ -112,13 +112,23 @@ function updateProgress() {
     progressFill.style.width = percent + "%";
 }
 
+
+// -------------------------
 // Focus Timer
-let timeLeft = 25 * 60;
+// -------------------------
+
+// Default time is 25 minutes
+let selectedMinutes = 25;
+let timeLeft = selectedMinutes * 60;
 let timerInterval = null;
 
+// Get timer elements
 const timerDisplay = document.getElementById("timer");
+const durationButtons = document.querySelectorAll(".duration-btn");
+const customTimeBox = document.getElementById("customTimeBox");
+const customMinutes = document.getElementById("customMinutes");
 
-// Display timer
+// Display minutes and seconds
 function updateTimer() {
     const minutes = Math.floor(timeLeft / 60);
     const seconds = timeLeft % 60;
@@ -128,10 +138,81 @@ function updateTimer() {
         String(seconds).padStart(2, "0");
 }
 
+// Stop the timer
+function stopTimer() {
+    clearInterval(timerInterval);
+    timerInterval = null;
+}
+
+// Change timer duration
+function changeDuration(minutes) {
+    stopTimer();
+
+    selectedMinutes = minutes;
+    timeLeft = selectedMinutes * 60;
+
+    updateTimer();
+}
+
+// Choose a time option
+durationButtons.forEach(function(button) {
+    button.addEventListener("click", function() {
+
+        // Remove active style from all buttons
+        durationButtons.forEach(function(btn) {
+            btn.classList.remove("active");
+        });
+
+        // Highlight the selected button
+        button.classList.add("active");
+
+        const minutes = button.dataset.minutes;
+
+        if (minutes === "custom") {
+            customTimeBox.hidden = false;
+
+            let customValue = Number(customMinutes.value);
+
+            // Allow from 1 to 180 minutes
+            if (customValue < 1 || customValue > 180 || !Number.isInteger(customValue)) {
+                customValue = 30;
+                customMinutes.value = 30;
+            }
+
+            changeDuration(customValue);
+
+        } else {
+            customTimeBox.hidden = true;
+            changeDuration(Number(minutes));
+        }
+    });
+});
+
+// Update custom time
+customMinutes.addEventListener("change", function() {
+    let minutes = Number(customMinutes.value);
+
+    if (!Number.isInteger(minutes) || minutes < 1 || minutes > 180) {
+        alert("Please enter a number between 1 and 180.");
+        customMinutes.value = selectedMinutes;
+        return;
+    }
+
+    changeDuration(minutes);
+});
+
 // Start timer
 document.getElementById("startTimer").addEventListener("click", function() {
+
+    // Prevent starting multiple timers
     if (timerInterval !== null) {
         return;
+    }
+
+    // Restart the selected duration if time is finished
+    if (timeLeft === 0) {
+        timeLeft = selectedMinutes * 60;
+        updateTimer();
     }
 
     timerInterval = setInterval(function() {
@@ -141,9 +222,7 @@ document.getElementById("startTimer").addEventListener("click", function() {
         }
 
         if (timeLeft === 0) {
-            clearInterval(timerInterval);
-            timerInterval = null;
-
+            stopTimer();
             alert("Great job! Time for a break!");
         }
     }, 1000);
@@ -151,19 +230,15 @@ document.getElementById("startTimer").addEventListener("click", function() {
 
 // Pause timer
 document.getElementById("pauseTimer").addEventListener("click", function() {
-    clearInterval(timerInterval);
-    timerInterval = null;
+    stopTimer();
 });
 
 // Reset timer
 document.getElementById("resetTimer").addEventListener("click", function() {
-    clearInterval(timerInterval);
-    timerInterval = null;
-
-    timeLeft = 25 * 60;
-    updateTimer();
+    changeDuration(selectedMinutes);
 });
 
 // Load the dashboard
 showTasks();
 updateTimer();
+

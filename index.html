@@ -86,21 +86,90 @@
 
             <ul id="taskList" class="task-list"></ul>
         </section>
+        
+<!-- Focus Timer -->
+<section class="timer-section">
 
-        <!-- Focus Timer -->
-        <section class="timer-section">
-            <h2>Focus Timer</h2>
+    <h2>Focus Timer</h2>
 
-            <p>Stay focused, one session at a time.</p>
+    <p>Choose your perfect focus session!</p>
 
-            <div id="timer">25:00</div>
+    <!-- Timer Display -->
+    <div id="timer">25:00</div>
 
-            <div class="timer-buttons">
-                <button id="startTimer">Start</button>
-                <button id="pauseTimer">Pause</button>
-                <button id="resetTimer">Reset</button>
-            </div>
-        </section>
+    <!-- Timer Duration Options -->
+    <div class="duration-options">
+
+        <button type="button"
+                class="duration-btn"
+                data-minutes="15">
+            15 min
+        </button>
+
+        <button type="button"
+                class="duration-btn active"
+                data-minutes="25">
+            25 min
+        </button>
+
+        <button type="button"
+                class="duration-btn"
+                data-minutes="45">
+            45 min
+        </button>
+
+        <button type="button"
+                class="duration-btn"
+                data-minutes="60">
+            60 min
+        </button>
+
+        <button type="button"
+                class="duration-btn"
+                data-minutes="custom">
+            Custom
+        </button>
+
+    </div>
+
+    <!-- Custom Time Input -->
+    <div id="customTimeBox"
+         class="custom-time-box"
+         hidden>
+
+        <label for="customMinutes">
+            Enter minutes:
+        </label>
+
+        <input
+            type="number"
+            id="customMinutes"
+            min="1"
+            max="180"
+            value="30"
+        >
+
+    </div>
+
+    <!-- Timer Controls -->
+    <div class="timer-buttons">
+
+        <button id="startTimer" type="button">
+            Start
+        </button>
+
+        <button id="pauseTimer" type="button">
+            Pause
+        </button>
+
+        <button id="resetTimer" type="button">
+            Reset
+        </button>
+
+    </div>
+
+</section>
+
 
     </main>
 
