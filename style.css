@@ -327,3 +327,90 @@ footer {
         padding: 24px;
     }
 }
+
+
+/* Custom Focus Timer */
+
+/* Duration buttons container */
+.duration-options {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+/* Duration buttons */
+.duration-btn {
+    background: white;
+    color: #645987;
+    border: 2px solid #ded7f1;
+    border-radius: 30px;
+    padding: 10px 18px;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+/* Button when selected */
+.duration-btn.active {
+    background: #9280cf;
+    color: white;
+    border-color: #9280cf;
+}
+
+/* Hover effect */
+.duration-btn:hover {
+    background: #e0d8ff;
+    color: #514579;
+    transform: translateY(-3px);
+}
+
+/* Keep the selected button highlighted */
+.duration-btn.active:hover {
+    background: #8170c4;
+    color: white;
+}
+
+/* Custom minutes box */
+.custom-time-box:not([hidden]) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin: 18px 0;
+}
+
+/* Hide custom input when not selected */
+.custom-time-box[hidden] {
+    display: none;
+}
+
+/* Custom minutes input */
+#customMinutes {
+    width: 90px;
+    padding: 10px;
+    border: 2px solid #c8bceb;
+    border-radius: 12px;
+    text-align: center;
+    font-size: 16px;
+    color: #514579;
+    background: white;
+}
+
+/* Input when clicked */
+#customMinutes:focus {
+    outline: none;
+    border-color: #9280cf;
+}
+
+/* Mobile adjustments */
+@media (max-width: 600px) {
+    .duration-options {
+        gap: 8px;
+    }
+
+    .duration-btn {
+        padding: 9px 14px;
+        font-size: 13px;
+    }
+}
